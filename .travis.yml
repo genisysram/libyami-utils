@@ -4,7 +4,9 @@ sudo: required
 language: c++
 compiler: g++
 os: linux
-
+arch:
+    - amd64
+    - ppc64le
 before_install:
   - test "${TRAVIS_BRANCH}" != 'coverity_scan' -o "${TRAVIS_JOB_NUMBER##*.}" = '1' || exit 0
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
